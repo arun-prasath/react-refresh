@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t arun-prasath/react-refresh -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true arun-prasath/react-refresh npm run test
